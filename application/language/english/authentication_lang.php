@@ -1,0 +1,30 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+$lang['auth_username'] = "Username";
+$lang['auth_first_name'] = "First Name";
+$lang['auth_last_name'] = "Last Name";
+$lang['auth_email'] = "Email";
+$lang['auth_password'] = "Password";
+$lang['auth_password_confirmation'] = "Password Confirmation";
+$lang['auth_username_email'] = "Username/Email";
+$lang['auth_incorrect_details_msg'] = "The details you provided are not correct. Please try again.";
+$lang['auth_login'] = "Login";
+$lang['auth_check_your_email_msg'] = "Please check your email for a message from us. Click on the link in the email to complete the process.";
+$lang['auth_error_sending_msg'] = "There is error in sending mail! Please try again later";
+$lang['auth_registration'] = "Registration";
+$lang['auth_incorrect_activation_link_msg'] = "The activation link is incorrect. Contact the admin to continue.";
+$lang['auth_account_activated_msg'] = "Your account has been activated. Click on the following link to login.";
+$lang['auth_invalid_token'] = "The user associated with the token does not exist. Contact the admin to continue.";
+$lang['auth_email_verification'] = "Email Verification";
+$lang['auth_inactive_account_msg'] = "Your account is not active. Please contact the admin to proceed.";
+$lang['auth_change_password'] = "Change Password";
+$lang['auth_incorrect_reset_link_msg'] = "The reset password link is incorrect. Contact the admin to continue.";
+$lang['auth_password_changed_msg'] = "Your password has been changed. Click on the following link to login.";
+$lang['auth_reset_password'] = "Reset Password";
+$lang['auth_fill_in_form'] = "Please fill in the form below.";
+$lang['auth_submit'] = "Submit";
+$lang['auth_confirm_password'] = "Confirm Password";
+$lang['auth_forgot_password'] = "Forgot password?";
+$lang['auth_'] = "";
+$lang['auth_'] = "";
