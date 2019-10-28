@@ -174,6 +174,21 @@
     font-size: 16px;
 }
 
+div.btn {
+  margin: auto 2px;
+}
+
+div.btn a {
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
 </style>
 
 </head>

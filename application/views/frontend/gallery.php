@@ -35,7 +35,7 @@
               <div class="col-md-3 espaco-card ">
                 <div class="card " >
                   <?php $page_num = $item_num++; ?>
-                  <a href="<?php echo site_url('gallery/view_full/' . $gallery_id . '/' . $item->id).'?page_num='.$page_num ?>"><img class="card-img-top" src="<?=base_url('uploads/photos/' . $item->location);?>" width="100%" alt="<?=$item->name?>"></a>
+                  <a href="<?php echo site_url('gallery/view_full/' . $gallery_id).'?page_num='.$page_num ?>"><img class="card-img-top" src="<?=base_url('uploads/photos/' . $item->location);?>" width="100%" alt="<?=$item->name?>"></a>
                 </div>
               </div>
                 <?php 
