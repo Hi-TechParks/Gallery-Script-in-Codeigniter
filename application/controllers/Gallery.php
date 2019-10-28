@@ -93,7 +93,7 @@ class Gallery extends MY_Controller {
         $this->render_page($data['gallery']->name, "", 'frontend/gallery', 'templates/frontend_header', 'templates/frontend_footer', $data);
 	}
 
-	public function view_full($gallery_id, $photo_id)
+	/*public function view_full($gallery_id, $photo_id)
 	{
 		$data = array();
 
@@ -103,7 +103,89 @@ class Gallery extends MY_Controller {
 
 		$data['gallery_id'] = $gallery_id;
 
-		$data['photo'] = $this->photo_model->find($photo_id);
+		// $data['photo'] = $this->photo_model->find($photo_id);
+
+		$data['objects'] = $this->gallery_model->find_related_limit('photos', $gallery_id, array('limit' => intval($this->per_page),'offset' => intval($this->input->get('page_num'))), array('date_created', 'DESC'));
+
+		$query_string = query_string(array(
+					'sort_value' => "",
+					'sort_direction' => "",
+					'search_term' => ""
+				));
+
+		$config_pagination = pagination_config(array(
+			'base_url' => site_url('gallery/view_full/' . $gallery_id . '/' . $query_string),
+			'total_rows' => $data['objects']['total_rows'],
+			'per_page' => $this->per_page,
+			));
+
+        $this->render_page($data['gallery']->name, "", 'frontend/gallery_full', 'templates/frontend_header', 'templates/frontend_footer', $data);
+	}*/
+
+
+
+
+	public function view_full($id, $photo_id)
+	{
+		$data = array();
+
+		$this->load->library('pagination');
+
+		$data['gallery'] = $this->gallery_model->find($id);
+
+		$data['gallery_id'] = $data['gallery']->id;
+
+		$page_name = $this->input->get('page_num');
+
+		$data['objects'] = $this->gallery_model->find_related_limit('photos', $id, array('limit' => intval(1),'offset' => intval($page_name)), array('id', 'DESC'));
+
+		/*$config['base_url'] = site_url('gallery/view_full/' . $id . '/' . $photo_id);
+		$config['total_rows'] = $data['objects']['total_rows'];
+		$config['per_page'] = 1;
+		$config['first_tag_open'] = '<div style="color:red;">';
+		$config['first_tag_close'] = '<div>';
+		$config['prev_link'] = 'Prev';
+		$config['next_link'] = 'Next';
+		$config['display_pages'] = FALSE;*/
+
+		$config = pagination_config(array(
+			'base_url' => site_url('gallery/view_full/' . $id . '/' . $photo_id),
+			'total_rows' => $data['objects']['total_rows'],
+			'per_page' => 1,
+			'prev_link' => lang('app_back'),
+			'next_link' => lang('app_forward'),
+			'display_pages' => FALSE,
+			'prev_tag_open' => '<div class="btn btn-info">',
+			'prev_tag_close' => '</div>',
+			'next_tag_open' => '<div class="btn btn-info">',
+			'next_tag_close' => '</div>',
+			'first_link' => FALSE,
+			'last_link' => FALSE,
+			));
+
+		$this->pagination->initialize($config);
+
+
+
+		/*$data['gallery'] = $this->gallery_model->find($id);
+
+		$data['gallery_id'] = $data['gallery']->id;
+
+		$data['objects'] = $this->gallery_model->find_related_limit('photos', $id, array('limit' => intval(1),'offset' => intval($this->input->get('page_num'))), array('id', 'DESC'));
+
+		$query_string = query_string(array(
+					'sort_value' => 2,
+					'sort_direction' => "",
+					'search_term' => ""
+				));
+
+		$config_pagination = pagination_config(array(
+			'base_url' => site_url('gallery/view_full/' . $id . '/' . $photo_id . '/' . $query_string),
+			'total_rows' => $data['objects']['total_rows'],
+			'per_page' => 1,
+			));
+
+		$this->pagination->initialize($config_pagination);*/
 
         $this->render_page($data['gallery']->name, "", 'frontend/gallery_full', 'templates/frontend_header', 'templates/frontend_footer', $data);
 	}

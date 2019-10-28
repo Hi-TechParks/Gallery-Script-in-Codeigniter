@@ -1,21 +1,7 @@
 <div class="container-fluid">
-  <h3 class="espaco-top"><?=$gallery->name?></h3>
-  <hr>
-  <p><?=lang('app_date_created')?>: <?=date("d/m/Y", strtotime($gallery->date_created))?></p>
-   <a href="<?php echo site_url('gallery/')?>" class="btn btn-info button-back" role="button"><?=lang('app_back')?></a>
-   
-</div>
-
-<div class="container-fluid">
-<?php if($objects['total_rows'] > $this->per_page){?>
-      <div class="row">
-        <div class="col-md-12">
-    <div class="text-center">
-          <?php echo $this->pagination->create_links();?>
-        </div>
-            </div>
-        </div>
-<?php } ?>
+	<h3 class="espaco-top"><?=$gallery->name?></h3>
+	<hr>
+	 
 </div>
 
 <div class="container-fluid">
@@ -31,6 +17,19 @@
       </div>
 </div>
 
+
+<div class="container-fluid">
+<?php if($objects['total_rows'] > $this->per_page){?>
+      <div class="row">
+        <div class="col-md-12">
+    <div class="text-center">
+          <?php echo $this->pagination->create_links();?>
+        </div>
+            </div>
+        </div>
+<?php } ?>
+</div>
+
 <?php foreach($objects["results"] as $photo){ ?>
 
 <div class="py-5">
@@ -44,19 +43,6 @@
   </div>
 
 <?php } ?>
-
-
-  <div class="container-fluid">
-<?php if($objects['total_rows'] > $this->per_page){?>
-      <div class="row">
-        <div class="col-md-12">
-    <div class="text-center">
-          <?php echo $this->pagination->create_links();?>
-        </div>
-            </div>
-        </div>
-<?php } ?>
-</div>
 
 <!-- Space Footer -->
 <div class="footer-gallery"><hr></div>
