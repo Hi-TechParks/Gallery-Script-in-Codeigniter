@@ -24,7 +24,25 @@
 
     <?php if(count($objects["results"]) > 0){
             $row_count = 0;
-            $item_num = 0;
+
+            // Get query string data by custom Helper
+            $url = current_full_url();
+            $parse_url = parse_url($url, PHP_URL_QUERY); # output "Query Value"
+
+            // Get query string values
+            preg_match_all("/(?=page_num\=([^\s]+))/", $parse_url, $matches);
+            // implode values
+            $result = implode(" ", $matches[1]);
+
+            // Setup first item values
+            if(!empty($result)){
+              $item_num = 0 + $result;
+            }
+            else{
+              $item_num = 0;
+            }
+            // End of sub page pagination logic
+
             foreach($objects["results"] as $item){ ?>
               <?php 
               $row_count = $row_count + 1; 

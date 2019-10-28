@@ -176,17 +176,19 @@
 
 div.btn {
   margin: auto 2px;
+  padding: 0rem 0rem;
 }
 
 div.btn a {
   color: #ffffff;
   text-decoration: none;
-  display: inline-block;
+  display: block;
   font-weight: normal;
   text-align: center;
   white-space: nowrap;
   font-size: 1rem;
   line-height: 1.25;
+  padding: 0.5rem 1rem;
 }
 
 </style>
