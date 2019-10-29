@@ -2,19 +2,17 @@
   <h3 class="espaco-top"><?=$gallery->name?></h3>
   <hr>
    
-   <a href="<?php echo site_url('gallery/view/' . $gallery->id)?>" class="btn btn-info button-back" role="button"><?=lang('app_back')?></a>
+   <a href="<?php echo site_url('gallery/view/' . $gallery->id)?>" class="btn btn-info button-back" role="button"><?=lang('app_gallery')?></a>
 </div>
 
 <div class="container-fluid">
-<?php if($objects['total_rows'] > $this->per_page){?>
-      <div class="row">
-        <div class="col-md-12">
-    <div class="text-center">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-center">
           <?php echo $this->pagination->create_links();?>
         </div>
-            </div>
-        </div>
-<?php } ?>
+      </div>
+  </div>
 </div>
 
 <!-- <div class="container-fluid">

@@ -174,12 +174,12 @@
     font-size: 16px;
 }
 
-div.btn {
+div.view_full_button {
   margin: auto 2px;
   padding: 0rem 0rem;
 }
 
-div.btn a {
+div.view_full_button a {
   color: #ffffff;
   text-decoration: none;
   display: block;
